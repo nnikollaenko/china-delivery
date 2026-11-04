@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="ru">
+<html lang="ru" data-version="v1">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -185,6 +185,14 @@ table.pricing td.comment{ color:var(--muted); font-size:13.5px; }
 [data-tab-panel].active{ display:block; }
 @media (max-width:720px){ .tab-switch{ width:100%; } .tab-switch button{ flex:1; padding:11px 10px; } }
 
+/* ── VERSION SWITCH ── */
+.version-switch{ display:inline-flex; align-items:center; gap:2px; background:var(--paper-raised); border-radius:999px; padding:3px; flex:none; }
+.version-switch button{ font-family:var(--font); border:none; background:transparent; color:var(--muted); font-size:12.5px; font-weight:600; font-variation-settings:'wght' 600; letter-spacing:.02em; padding:8px 14px; border-radius:999px; cursor:pointer; transition:background .15s,color .15s; }
+.version-switch button.active{ background:var(--ink); color:#fff; }
+@media (max-width:720px){ .version-switch button{ padding:9px 13px; } }
+html:not([data-version="v2"]) [data-version-content="v2"]{ display:none !important; }
+html[data-version="v2"] [data-version-content="v1"]{ display:none !important; }
+
 /* ── COMPARISON TABLE (visible grid) ── */
 .compare-table{ width:100%; border-collapse:collapse; font-size:14px; min-width:560px; letter-spacing:-0.1px; border:1px solid var(--line); }
 .compare-table th, .compare-table td{ border:1px solid var(--line); padding:14px 18px; text-align:left; vertical-align:top; }
@@ -236,6 +244,7 @@ table.pricing td.comment{ color:var(--muted); font-size:13.5px; }
   :root{ --topbar-h:64px; --gutter:16px; }
   .topbar-actions{ display:none; }
   .bottom-cta-bar{ display:flex; }
+  .bottom-cta-bar .version-switch + .btn.secondary{ display:none; }
   body{ padding-bottom:74px; }
   .parties{ grid-template-columns:1fr; }
   .pkg-grid{ grid-template-columns:1fr; }
@@ -257,6 +266,10 @@ table.pricing td.comment{ color:var(--muted); font-size:13.5px; }
       <span>/</span>Редизайн сайта
     </div>
     <div class="topbar-actions">
+      <div class="version-switch">
+        <button type="button" class="active" data-version="v1">КП 1</button>
+        <button type="button" data-version="v2">КП 2</button>
+      </div>
       <a href="https://nikelstudio.com/" target="_blank" class="btn secondary no-arrow">
         Перейти на&nbsp;сайт
       </a>
@@ -269,6 +282,10 @@ table.pricing td.comment{ color:var(--muted); font-size:13.5px; }
 </div>
 
 <div class="bottom-cta-bar">
+  <div class="version-switch">
+    <button type="button" class="active" data-version="v1">КП 1</button>
+    <button type="button" data-version="v2">КП 2</button>
+  </div>
   <a href="https://nikelstudio.com/" target="_blank" class="btn secondary no-arrow">
     Перейти на&nbsp;сайт
   </a>
@@ -298,6 +315,8 @@ table.pricing td.comment{ color:var(--muted); font-size:13.5px; }
 </section>
 
 <div class="wrap">
+
+<div data-version-content="v1">
 
   <section class="intro">
     <p class="salut">Добрый день!</p>
@@ -386,7 +405,7 @@ table.pricing td.comment{ color:var(--muted); font-size:13.5px; }
 
       <div data-tab-panel="custom">
         <p style="margin-top:0;"><strong>Рекомендуем именно этот&nbsp;вариант.</strong> На&nbsp;кастомном коде — абсолютно неограниченные возможности для&nbsp;функционала: если&nbsp;в&nbsp;будущем бизнес решит добавить калькуляторы, формы, ботов и&nbsp;так&nbsp;далее — это всё&nbsp;реализуемо. Так&nbsp;же&nbsp;можно настроить любые интеграции — с&nbsp;любыми CRM и&nbsp;другими внешними системами, которые помогают в&nbsp;работе с&nbsp;клиентами.</p>
-        <p>В&nbsp;рамках разработки реализуем не&nbsp;только сам сайт, но&nbsp;и&nbsp;обязательно админ-панель — через неё можно самостоятельно вносить изменения в&nbsp;любой контент на&nbsp;сайте и&nbsp;добавлять динамический контент, например, статьи блога.</p>
+        <p>В&nbsp;рамках разработки реализуем не&nbsp;только сам сайт, но&nbsp;и&nbsp;обязательно админ-панель — через&nbsp;неё можно самостоятельно вносить изменения в&nbsp;любой контент на&nbsp;сайте и&nbsp;добавлять динамический контент, например, статьи блога.</p>
         <div class="pkg-grid pkg-grid-single">
           <div class="pkg-card">
             <h4>Дизайн + разработка на&nbsp;кастомном коде</h4>
@@ -524,6 +543,181 @@ table.pricing td.comment{ color:var(--muted); font-size:13.5px; }
     </div>
   </section>
 
+</div>
+
+<div data-version-content="v2">
+
+  <section class="intro">
+    <p class="salut">Добрый день!</p>
+    <p>Ниже — второй вариант предложения: более бюджетный старт. Сейчас точно просчитать стоимость полной разработки сайта сложно — поэтому предлагаем начать с&nbsp;дизайна, а&nbsp;по&nbsp;его итогам назвать точную цену и&nbsp;сроки разработки.</p>
+    <ul class="approach-list">
+      <li><span class="approach-num">01</span><span class="t">Контекст</span></li>
+      <li><span class="approach-num">02</span><span class="t">Бриф</span></li>
+      <li><span class="approach-num">03</span><span class="t">Анализ рынка и&nbsp;аудитории</span></li>
+      <li><span class="approach-num">04</span><span class="t">Структура и&nbsp;утверждение</span></li>
+      <li><span class="approach-num">05</span><span class="t">Дизайн</span></li>
+      <li><span class="approach-num">06</span><span class="t">Стоимость</span></li>
+      <li><span class="approach-num">07</span><span class="t">Условия оплаты</span></li>
+    </ul>
+    <div class="parties">
+      <div class="party">
+        <div class="party-label">Исполнитель</div>
+        <div class="party-name">nikel digital studio</div>
+        <p>Elizaveta Nikolaenko<br>
+        <a href="mailto:nikel.digital.studio@gmail.com">nikel.digital.studio@gmail.com</a><br>
+        <a href="https://telegram.me/nikel_studio" target="_blank">Telegram · nikel_studio</a><br>
+        <a href="https://wa.me/35797567152" target="_blank">WhatsApp · +357 97 567 152</a></p>
+      </div>
+      <div class="party">
+        <div class="party-label">Заказчик</div>
+        <div class="party-name">Доставка из&nbsp;Китая</div>
+        <p>Доставка товаров из&nbsp;Китая</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="section" id="v2-s01">
+    <div class="section-head">
+      <div class="section-num-row"><span class="n">01</span><span class="slash">/</span><span class="eyebrow">Контекст</span></div>
+      <h2 class="section-title">Почему мы предлагаем начать с&nbsp;дизайна</h2>
+    </div>
+    <div class="section-body">
+      <p>Чтобы назвать точную стоимость и&nbsp;сроки полной разработки сайта, нужно понимать: сколько в&nbsp;итоге будет страниц, насколько сложным будет функционал и&nbsp;каким именно он&nbsp;будет, что&nbsp;происходит на&nbsp;рынке, как&nbsp;выглядит целевая аудитория и&nbsp;так&nbsp;далее. Определить всё это заранее, до&nbsp;начала работы, мы&nbsp;не&nbsp;можем — а&nbsp;значит, не&nbsp;можем и&nbsp;дать точную цену на&nbsp;разработку.</p>
+      <p>Что&nbsp;мы можем сделать уже&nbsp;сейчас — дать точную цену на&nbsp;дизайн сайта, основанный на&nbsp;той структуре, которая есть на&nbsp;сегодняшний день. По&nbsp;итогам дизайна мы&nbsp;будем точно понимать объём и&nbsp;сложность сайта — и&nbsp;сможем назвать точную стоимость и&nbsp;сроки разработки.</p>
+    </div>
+  </section>
+
+  <section class="section" id="v2-s02">
+    <div class="section-head">
+      <div class="section-num-row"><span class="n">02</span><span class="slash">/</span><span class="eyebrow">Старт</span></div>
+      <h2 class="section-title">Бриф</h2>
+    </div>
+    <div class="section-body">
+      <p>Первый этап — детальный созвон с&nbsp;вашей командой. На&nbsp;брифе мы:</p>
+      <div class="includes">
+        <ul>
+          <li>Уточняем цели и&nbsp;задачи сайта, главное целевое действие</li>
+          <li>Разбираем бизнес, продукт и&nbsp;его особенности</li>
+          <li>Проговариваем текущие проблемы сайта и&nbsp;метрики</li>
+          <li>Собираем референсы по&nbsp;цветам, шрифтам и&nbsp;стилю, которые вам нравятся — важно брать не&nbsp;сайты конкурентов, а&nbsp;любые другие сайты в&nbsp;принципе: это может быть сайт Apple, а&nbsp;может быть вообще любой другой сайт во&nbsp;вселенной — так&nbsp;мы понимаем, от&nbsp;чего отталкиваться</li>
+          <li>Также полезно показать сайты, которые вам&nbsp;<strong>не</strong> нравятся — это тоже даёт много информации</li>
+          <li>Если есть брендинг и&nbsp;дизайн-система — предоставляете её&nbsp;нам на&nbsp;этом же&nbsp;этапе</li>
+          <li>Собираем все материалы для&nbsp;работы — фото, видео и&nbsp;другие исходники</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <section class="section" id="v2-s03">
+    <div class="section-head">
+      <div class="section-num-row"><span class="n">03</span><span class="slash">/</span><span class="eyebrow">Исследование</span></div>
+      <h2 class="section-title">Анализ рынка и&nbsp;аудитории</h2>
+    </div>
+    <div class="section-body">
+      <p>Параллельно с&nbsp;брифом проводим собственное исследование — не&nbsp;ограничиваемся только той информацией, которую получили от&nbsp;вас.</p>
+      <div class="includes">
+        <div class="includes-label">AI-исследование рынка</div>
+        <ul>
+          <li>Делаем сводный анализ при&nbsp;помощи нейросетей — опираемся примерно на&nbsp;5 источников, не&nbsp;только на&nbsp;то, что&nbsp;рассказали на&nbsp;брифе, а&nbsp;ещё&nbsp;дополнительно исследуем рынок и&nbsp;берём объективные факты за&nbsp;основу</li>
+          <li><strong>Зачем:</strong> это даёт объективный, целостный анализ рынка — не&nbsp;только тех конкурентов, которых знает владелец бизнеса, а&nbsp;всех значимых игроков в&nbsp;диджитал-пространстве</li>
+          <li><strong>Что&nbsp;это даёт:</strong> понимание, есть&nbsp;ли&nbsp;на&nbsp;рынке сильные игроки с&nbsp;сильными сайтами; как&nbsp;именно они&nbsp;выглядят; насколько они&nbsp;удобны и&nbsp;конвертируют ли; является&nbsp;ли&nbsp;сайт их&nbsp;основным инструментом продаж; настроено&nbsp;ли&nbsp;у&nbsp;них SEO или&nbsp;подключена интернет-реклама; как&nbsp;выглядят формы; есть&nbsp;ли&nbsp;калькуляторы и&nbsp;другой функционал, который стоит позаимствовать</li>
+        </ul>
+      </div>
+      <div class="includes">
+        <div class="includes-label">Сильные игроки на&nbsp;мировом рынке</div>
+        <ul>
+          <li>Ищем сильных игроков не&nbsp;только в&nbsp;нише и&nbsp;регионе, а&nbsp;в&nbsp;целом на&nbsp;мировом рынке — с&nbsp;целью найти уникальный функционал, подачу и&nbsp;информацию, благодаря которым эти&nbsp;игроки стали сильными, а&nbsp;их&nbsp;сайты — эффективными</li>
+        </ul>
+      </div>
+      <p>По&nbsp;итогам этого исследования формируем SEO-стратегию и&nbsp;структуру сайта, которая закладывает основу для&nbsp;сильного SEO-продвижения.</p>
+    </div>
+  </section>
+
+  <section class="section" id="v2-s04">
+    <div class="section-head">
+      <div class="section-num-row"><span class="n">04</span><span class="slash">/</span><span class="eyebrow">Утверждение</span></div>
+      <h2 class="section-title">Структура и&nbsp;утверждение</h2>
+    </div>
+    <div class="section-body">
+      <p>После анализа рынка и&nbsp;аудитории проводим общий созвон, на&nbsp;котором презентуем результат стратегии и&nbsp;структуру сайта — пока поверхностно, на&nbsp;уровне логики и&nbsp;блоков.</p>
+      <p>На&nbsp;этой&nbsp;же&nbsp;встрече договариваемся и&nbsp;о&nbsp;визуальных референсах — как&nbsp;может выглядеть сайт, опираясь на&nbsp;референсы, которые вы&nbsp;подготовили к&nbsp;брифу.</p>
+      <p>Дальше передаём вам файл со&nbsp;структурой на&nbsp;утверждение — там уже&nbsp;конкретный копирайт: нужно вычитать все&nbsp;тексты, абзацы и&nbsp;пункты, внести правки.</p>
+    </div>
+  </section>
+
+  <section class="section" id="v2-s05">
+    <div class="section-head">
+      <div class="section-num-row"><span class="n">05</span><span class="slash">/</span><span class="eyebrow">Реализация</span></div>
+      <h2 class="section-title">Дизайн</h2>
+    </div>
+    <div class="section-body">
+      <p>Сначала отрисовываем главную страницу и&nbsp;утверждаем её&nbsp;с&nbsp;вами — чтобы не&nbsp;оказалось, что&nbsp;весь сайт уже&nbsp;отрисован, а&nbsp;это вообще не&nbsp;то, что&nbsp;вы&nbsp;себе представляли. Так&nbsp;проще и&nbsp;легче вносить правки.</p>
+      <p>После того как&nbsp;утверждён весь дизайн главной страницы, переходим к&nbsp;адаптивным версиям — для&nbsp;планшета и&nbsp;мобильных устройств, чтобы разработчику было легче переносить сайт в&nbsp;код, а&nbsp;на&nbsp;любом устройстве сайт выглядел как&nbsp;положено.</p>
+      <div class="pkg-grid pkg-grid-single">
+        <div class="pkg-card">
+          <h4>Дизайн сайта</h4>
+          <div class="pkg-price">$1 200</div>
+          <p>На&nbsp;основе структуры, которая есть на&nbsp;сегодняшний день. Десктоп + адаптивные версии.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section" id="v2-s06">
+    <div class="section-head">
+      <div class="section-num-row"><span class="n">06</span><span class="slash">/</span><span class="eyebrow">Инвестиции</span></div>
+      <h2 class="section-title">Стоимость</h2>
+    </div>
+    <div class="section-body">
+      <div class="includes">
+        <ul>
+          <li><strong>Дизайн сайта</strong> — $1 200 (на&nbsp;основе текущей структуры, десктоп + адаптивы)</li>
+        </ul>
+      </div>
+      <div class="callout">
+        <span class="dot"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><line x1="12" y1="8" x2="12" y2="13"/><line x1="12" y1="16" x2="12.01" y2="16"/></svg></span>
+        <p>По&nbsp;итогам дизайна мы&nbsp;точно понимаем объём и&nbsp;сложность сайта — и&nbsp;уже&nbsp;сможем назвать точную стоимость и&nbsp;сроки разработки. Сейчас, без&nbsp;этого этапа, ничего из&nbsp;этого определить нельзя.</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="section" id="v2-s07">
+    <div class="section-head">
+      <div class="section-num-row"><span class="n">07</span><span class="slash">/</span><span class="eyebrow">Оплата</span></div>
+      <h2 class="section-title">Условия оплаты</h2>
+    </div>
+    <div class="section-body">
+      <p>Оплата делится на&nbsp;три части.</p>
+      <div class="stat-grid">
+        <div class="stat-card">
+          <div class="stat-num">$400</div>
+          <div class="stat-label">Платёж 1 — предоплата<br>Перед началом брифа и&nbsp;анализа</div>
+        </div>
+        <div class="stat-card">
+          <div class="stat-num">$400</div>
+          <div class="stat-label">Платёж 2<br>После утверждения структуры сайта</div>
+        </div>
+        <div class="stat-card">
+          <div class="stat-num">$400</div>
+          <div class="stat-label">Платёж 3 — постоплата<br>Перед передачей доступа к&nbsp;Figma</div>
+        </div>
+      </div>
+      <div class="callout">
+        <span class="dot"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><line x1="12" y1="8" x2="12" y2="13"/><line x1="12" y1="16" x2="12.01" y2="16"/></svg></span>
+        <p>До&nbsp;постоплаты доступ к&nbsp;Figma не&nbsp;передаётся — скопировать или&nbsp;использовать что-либо из&nbsp;макета не&nbsp;получится.</p>
+      </div>
+      <div class="includes">
+        <div class="includes-label">Способы оплаты</div>
+        <ul>
+          <li>Криптокошелёк</li>
+          <li>Карта европейского банка</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+</div>
+
   <section class="section" id="terms" style="padding-bottom:96px;">
     <div class="section-head">
       <div class="section-num-row"><span class="slash">§</span><span class="eyebrow">Условия</span></div>
@@ -583,6 +777,23 @@ table.pricing td.comment{ color:var(--muted); font-size:13.5px; }
       });
     });
   });
+})();
+</script>
+<script>
+(function(){
+  function setVersion(v){
+    document.documentElement.setAttribute('data-version', v);
+    document.querySelectorAll('.version-switch button').forEach(function(b){
+      b.classList.toggle('active', b.getAttribute('data-version') === v);
+    });
+    try{ localStorage.setItem('china-delivery-version', v); }catch(e){}
+  }
+  var saved = 'v1';
+  try{ saved = localStorage.getItem('china-delivery-version') || 'v1'; }catch(e){}
+  document.querySelectorAll('.version-switch button').forEach(function(b){
+    b.addEventListener('click', function(){ setVersion(b.getAttribute('data-version')); });
+  });
+  setVersion(saved === 'v2' ? 'v2' : 'v1');
 })();
 </script>
 <script>
